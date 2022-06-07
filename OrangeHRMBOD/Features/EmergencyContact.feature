@@ -18,3 +18,8 @@ Scenario: Add Emergency Contact
 	And I click on save
 
 	Then I should get the added contact name in the assigned contact table
+
+	 Examples:
+	| username | password | contactname | relationship | homephone | mobile | workphone |
+	| Admin    | admin123 | Sathish     | Brother      | 4554      | 5553   | 454554    |
+	| Admin    | admin123 | Paul        | Father       | 45541     | 55531  | 4545541   |

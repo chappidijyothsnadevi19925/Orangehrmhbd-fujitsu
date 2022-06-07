@@ -77,11 +77,25 @@ namespace OrangeHRMBOD.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Emergency Contact")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void AddEmergencyContact()
+        [NUnit.Framework.TestCaseAttribute("Admin", "admin123", "Sathish", "Brother", "4554", "5553", "454554", null)]
+        [NUnit.Framework.TestCaseAttribute("Admin", "admin123", "Paul", "Father", "45541", "55531", "4545541", null)]
+        public void AddEmergencyContact(string username, string password, string contactname, string relationship, string homephone, string mobile, string workphone, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "tag1"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("contactname", contactname);
+            argumentsOfScenario.Add("relationship", relationship);
+            argumentsOfScenario.Add("homephone", homephone);
+            argumentsOfScenario.Add("mobile", mobile);
+            argumentsOfScenario.Add("workphone", workphone);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Emergency Contact", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);

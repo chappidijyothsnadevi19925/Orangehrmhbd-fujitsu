@@ -1,12 +1,13 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Edge;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace OrangeHRMBDD.Hooks
 {
@@ -18,7 +19,11 @@ namespace OrangeHRMBDD.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            AutomationHooks.driver.Quit();
+            if (AutomationHooks.driver != null)
+            {
+                AutomationHooks.driver.Quit();
+            }
+
         }
 
 
